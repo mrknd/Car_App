@@ -1,12 +1,22 @@
 from django.shortcuts import render
 
+from pages.models import Team
+
 
 def home(request):
-    return render(request=request, template_name='pages/home.html')
+    teams = Team.objects.all()
+    context = {
+        'teams': teams,
+    }
+    return render(request=request, template_name='pages/home.html', context=context)
 
 
 def about(request):
-    return render(request=request, template_name='pages/about.html')
+    teams = Team.objects.all()
+    context = {
+        'teams': teams,
+    }
+    return render(request=request, template_name='pages/about.html', context=context)
 
 
 def services(request):

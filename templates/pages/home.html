@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} | Home {% endblock %}
+
 {% block content %}
 
     {% load humanize %}
@@ -13,6 +15,7 @@
                 <div class="carousel-item banner-max-height active item-bg">
                     <img class="d-block w-100 h-100" src="{% static 'img/car-1.jpg' %}" alt="banner">
                     <div class="carousel-content container banner-info-2 bi-2 text-left">
+
                         <h3>Wow Factor Standard</h3>
                         <h5>Allow us to guide you through the innovative stress<br>
                             free approach in finding your dream car.</h5>
@@ -48,40 +51,40 @@
                     <div class="form-group">
                         <select class="form-control search-fields" name="model">
                             <option selected="true" disabled="disabled">Model</option>
-                        
+
                             {% for model in model_search %}
-                            <option value="{{ model }}">{{ model }}</option>
+                                <option value="{{ model }}">{{ model }}</option>
                             {% endfor %}
-                        
+
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <select class="form-control search-fields" name="state">
                             <option selected="true" disabled="disabled">Location</option>
-                        
+
                             {% for state in state_search %}
-                            <option value="{{ state }}">{{ state }}</option>
+                                <option value="{{ state }}">{{ state }}</option>
                             {% endfor %}
                         </select>
-                        
+
                     </div>
                     <div class="form-group">
                         <select class="form-control search-fields" name="year">
                             <option selected="true" disabled="disabled">Year</option>
-                        
+
                             {% for year in year_search %}
-                            <option value="{{ year }}">{{ year }}</option>
+                                <option value="{{ year }}">{{ year }}</option>
                             {% endfor %}
-                        
+
                         </select>
                     </div>
                     <div class="form-group">
                         <select class="form-control search-fields" name="body_style">
                             <option selected="true" disabled="disabled">Select Type Of Car</option>
-                            
+
                             {% for body_style in body_style_search %}
-                            <option value="{{ body_style }}">{{ body_style }}</option>
+                                <option value="{{ body_style }}">{{ body_style }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -299,6 +302,8 @@
                                 <div class="pull-right">
                                     <p class="price">${{ car.price | intcomma }}</p>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>

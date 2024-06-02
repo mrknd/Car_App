@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} | Cars Inventory {% endblock %}
+
 {% block content %}
     {% load humanize %}
     <!-- Sub banner start -->
@@ -20,6 +22,86 @@
     <div class="featured-car content-area">
         <div class="container">
             <div class="row">
+            <div class="col-lg-4 col-md-12">
+                    <div class="sidebar-right">
+                        <!-- Advanced search start -->
+                        <div class="widget advanced-search2">
+                            <h3 class="sidebar-title">Search your desire car</h3>
+                            <form action="{% url 'search' %}" method="">
+                                <div class="form-group">
+                                    <input type="text" name="keyword" placeholder="Search by name" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control search-fields" name="model">
+                                        <option selected="true" disabled="disabled">Model</option>
+
+                                        {% for model in model_search %}
+                                            <option value="{{ model }}">{{ model }}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control search-fields" name="state">
+                                        <option selected="true" disabled="disabled">Location</option>
+
+                                        {% for state in state_search %}
+                                            <option value="{{ state }}">{{ state }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control search-fields" name="year">
+                                        <option selected="true" disabled="disabled">Year</option>
+
+                                        {% for year in year_search %}
+                                            <option value="{{ year }}">{{ year }}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control search-fields" name="body_style">
+                                        <option selected="true" disabled="disabled">Select Type Of Car</option>
+
+                                        {% for body_style in body_style_search %}
+                                            <option value="{{ body_style }}">{{ body_style }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="range-slider clearfix">
+                                    <label>Price</label>
+                                    <div data-min="0" data-max="150000" data-min-name="min_price"
+                                         data-max-name="max_price"
+                                         data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-block button-theme btn-md">
+                                        <i class="fa fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Question start -->
+                        <div class="widget question widget-3">
+                            <h5 class="sidebar-title">Follow us</h5>
+                            <div class="social-list clearfix">
+                                <ul>
+                                    <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-8 col-md-12">
 
                     <div class="row">
@@ -147,86 +229,86 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="sidebar-right">
-                        <!-- Advanced search start -->
-                        <div class="widget advanced-search2">
-                            <h3 class="sidebar-title">Search your desire car</h3>
-                            <form action="{% url 'search' %}" method="">
-                                <div class="form-group">
-                                    <input type="text" name="keyword" placeholder="Search by name" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <select class="form-control search-fields" name="model">
-                                        <option selected="true" disabled="disabled">Model</option>
-
-                                        {% for model in model_search %}
-                                            <option value="{{ model }}">{{ model }}</option>
-                                        {% endfor %}
-
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <select class="form-control search-fields" name="state">
-                                        <option selected="true" disabled="disabled">Location</option>
-
-                                        {% for state in state_search %}
-                                            <option value="{{ state }}">{{ state }}</option>
-                                        {% endfor %}
-                                    </select>
-
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control search-fields" name="year">
-                                        <option selected="true" disabled="disabled">Year</option>
-
-                                        {% for year in year_search %}
-                                            <option value="{{ year }}">{{ year }}</option>
-                                        {% endfor %}
-
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control search-fields" name="body_style">
-                                        <option selected="true" disabled="disabled">Select Type Of Car</option>
-
-                                        {% for body_style in body_style_search %}
-                                            <option value="{{ body_style }}">{{ body_style }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                <div class="range-slider clearfix">
-                                    <label>Price</label>
-                                    <div data-min="0" data-max="150000" data-min-name="min_price"
-                                         data-max-name="max_price"
-                                         data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-block button-theme btn-md">
-                                        <i class="fa fa-search"></i> Search
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Question start -->
-                        <div class="widget question widget-3">
-                            <h5 class="sidebar-title">Follow us</h5>
-                            <div class="social-list clearfix">
-                                <ul>
-                                    <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
-                                    <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{#                <div class="col-lg-4 col-md-12">#}
+{#                    <div class="sidebar-right">#}
+{#                        <!-- Advanced search start -->#}
+{#                        <div class="widget advanced-search2">#}
+{#                            <h3 class="sidebar-title">Search your desire car</h3>#}
+{#                            <form action="{% url 'search' %}" method="">#}
+{#                                <div class="form-group">#}
+{#                                    <input type="text" name="keyword" placeholder="Search by name" class="form-control">#}
+{#                                </div>#}
+{##}
+{#                                <div class="form-group">#}
+{#                                    <select class="form-control search-fields" name="model">#}
+{#                                        <option selected="true" disabled="disabled">Model</option>#}
+{##}
+{#                                        {% for model in model_search %}#}
+{#                                            <option value="{{ model }}">{{ model }}</option>#}
+{#                                        {% endfor %}#}
+{##}
+{#                                    </select>#}
+{#                                </div>#}
+{##}
+{#                                <div class="form-group">#}
+{#                                    <select class="form-control search-fields" name="state">#}
+{#                                        <option selected="true" disabled="disabled">Location</option>#}
+{##}
+{#                                        {% for state in state_search %}#}
+{#                                            <option value="{{ state }}">{{ state }}</option>#}
+{#                                        {% endfor %}#}
+{#                                    </select>#}
+{##}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <select class="form-control search-fields" name="year">#}
+{#                                        <option selected="true" disabled="disabled">Year</option>#}
+{##}
+{#                                        {% for year in year_search %}#}
+{#                                            <option value="{{ year }}">{{ year }}</option>#}
+{#                                        {% endfor %}#}
+{##}
+{#                                    </select>#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <select class="form-control search-fields" name="body_style">#}
+{#                                        <option selected="true" disabled="disabled">Select Type Of Car</option>#}
+{##}
+{#                                        {% for body_style in body_style_search %}#}
+{#                                            <option value="{{ body_style }}">{{ body_style }}</option>#}
+{#                                        {% endfor %}#}
+{#                                    </select>#}
+{#                                </div>#}
+{#                                <div class="range-slider clearfix">#}
+{#                                    <label>Price</label>#}
+{#                                    <div data-min="0" data-max="150000" data-min-name="min_price"#}
+{#                                         data-max-name="max_price"#}
+{#                                         data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>#}
+{#                                    <div class="clearfix"></div>#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <button class="btn btn-block button-theme btn-md">#}
+{#                                        <i class="fa fa-search"></i> Search#}
+{#                                    </button>#}
+{#                                </div>#}
+{#                            </form>#}
+{#                        </div>#}
+{##}
+{#                        <!-- Question start -->#}
+{#                        <div class="widget question widget-3">#}
+{#                            <h5 class="sidebar-title">Follow us</h5>#}
+{#                            <div class="social-list clearfix">#}
+{#                                <ul>#}
+{#                                    <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>#}
+{#                                    <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>#}
+{#                                    <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>#}
+{#                                    <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
             </div>
         </div>
     </div>

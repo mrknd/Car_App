@@ -767,7 +767,7 @@ input[type=checkbox]:checked + label:before {
     line-height: 20px;
     color: #515151;
     opacity: 1;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
@@ -2273,7 +2273,7 @@ input[type=checkbox]:checked + label:before {
 
 .car-box .footer .price{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 19px;
     padding-right: 20px;
     margin-bottom: 0;
     line-height: 49px;
@@ -9767,6 +9767,8 @@ a.nav-link.active{
 .tabbing-box .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
   color: #fff !important;
 }
+
+
 
 
 
